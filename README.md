@@ -1,24 +1,24 @@
 # AIWear
 
-AIWear is a full-stack image editing platform for outfit-related workflows. The repository contains a Vue frontend, a Spring Boot backend, a Python image service, and deployment examples for local or team setup.
+AIWear 是一个面向服饰相关场景的全栈图片编辑平台。仓库中包含 Vue 前端、Spring Boot 后端、Python 图像服务，以及用于本地或团队部署的示例配置。
 
-## Project Structure
+## 项目结构
 
 ```text
-fronted/                     Vue 3 + Vite frontend
-java_code/AIWear/            Spring Boot backend
-python_code/AI_Wear_python/  Flask-based Python image service
-deploy/                      Example deployment configs for MySQL, Redis, and Nginx
+fronted/                     Vue 3 + Vite 前端
+java_code/AIWear/            Spring Boot 后端
+python_code/AI_Wear_python/  基于 Flask 的 Python 图像服务
+deploy/                      MySQL、Redis、Nginx 的示例部署配置
 ```
 
-## Tech Stack
+## 技术栈
 
-- Frontend: Vue 3, Vite, Vue Router, Pinia, Element Plus, Axios
-- Backend: Spring Boot 3, MyBatis-Plus, Redis, JWT, Java Mail, Aliyun OSS SDK
-- Python service: Flask, DashScope, Redis, Torch, Transformers, Pillow
-- Deployment: Docker Compose, Nginx, MySQL, Redis
+- 前端：Vue 3、Vite、Vue Router、Pinia、Element Plus、Axios
+- 后端：Spring Boot 3、MyBatis-Plus、Redis、JWT、Java Mail、阿里云 OSS SDK
+- Python 服务：Flask、DashScope、Redis、Torch、Transformers、Pillow
+- 部署：Docker Compose、Nginx、MySQL、Redis
 
-## Runtime Dependencies
+## 运行依赖
 
 - Node.js 18+
 - Java 17
@@ -26,16 +26,16 @@ deploy/                      Example deployment configs for MySQL, Redis, and Ng
 - MySQL 8
 - Redis 7
 
-## Local Startup Order
+## 本地启动顺序
 
-1. Start MySQL and Redis first.
-2. Configure backend environment values and start the Spring Boot service on `8081`.
-3. Configure Python service environment values and start the Flask service on `6789`.
-4. Start the frontend with `npm install` and `npm run dev`.
+1. 先启动 MySQL 和 Redis。
+2. 配置后端环境变量后，启动 Spring Boot 服务，默认端口 `8081`。
+3. 配置 Python 服务环境变量后，启动 Flask 服务，默认端口 `6789`。
+4. 在前端目录执行 `npm install` 和 `npm run dev`。
 
-## Setup Notes
+## 使用说明
 
-### Frontend
+### 前端
 
 ```powershell
 cd fronted
@@ -43,39 +43,39 @@ npm install
 npm run dev
 ```
 
-The frontend dev proxy reads `fronted/.env.development`. The default target in this repository points to `http://127.0.0.1:8081`.
+前端开发代理读取 `fronted/.env.development`，当前仓库默认代理目标为 `http://127.0.0.1:8081`。
 
-### Java Backend
+### Java 后端
 
-Update the example values in `java_code/AIWear/src/main/resources/application.yml` before local startup. This repository keeps only sanitized sample values.
+启动前请先根据本地环境修改 `java_code/AIWear/src/main/resources/application.yml` 中的示例配置。当前仓库仅保留脱敏后的示例值。
 
-Typical startup:
+常用启动方式：
 
 ```powershell
 cd java_code\AIWear
 mvn spring-boot:run
 ```
 
-### Python Service
+### Python 服务
 
-Create a local `.env` from the example file and fill in your private values:
+先根据示例文件创建本地 `.env`，再填写你自己的私有配置：
 
 ```powershell
 cd python_code\AI_Wear_python
 Copy-Item .env.example .env
 ```
 
-Then install dependencies and run the service:
+然后安装依赖并启动服务：
 
 ```powershell
 pip install -r requirements.txt
 python server.py
 ```
 
-## Desensitization Notice
+## 脱敏说明
 
-This repository is a sanitized collaboration copy prepared for GitHub upload:
+当前仓库是为 GitHub 上传准备的脱敏协作副本：
 
-- Real passwords, tokens, mail authorization codes, OSS credentials, and private endpoints were removed.
-- Local dependency directories and build outputs were excluded from version control.
-- Private runtime configuration should be stored in local `.env` files or private environment variables, not committed to Git.
+- 已移除真实密码、token、邮箱授权码、OSS 凭据和私有服务地址。
+- 已排除本地依赖目录和构建产物，不纳入版本控制。
+- 私有运行配置应放在本地 `.env` 文件或私有环境变量中，不应提交到 Git。
