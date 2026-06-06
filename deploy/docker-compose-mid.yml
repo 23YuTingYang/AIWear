@@ -56,7 +56,7 @@ services:
     networks:
       - yang_wear_network
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ["CMD", "redis-cli", "-a", "change_me", "ping"]
       interval: 10s
       timeout: 5s
       retries: 10
